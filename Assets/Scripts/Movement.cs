@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rb;
-    
+    [SerializeField] float pushThrust = 1000f;
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             Debug.Log("Thrusting");
-            rb.AddRelativeForce(Vector3.up);
+            rb.AddRelativeForce(Vector3.up * pushThrust * Time.deltaTime);
         }
 
         
